@@ -44,11 +44,9 @@ tw-story[tags~="Zauberer"]{
   background-image:url("https://www.playcentral.de/wp-content/uploads/2020/09/e4950a7c52fc074ab878fae2b55c258e.jpg");
 }
 tw-story [tags~="Zauberer"]{
-  background-color: rgba(213, 203, 208, 0.5)
+  background-color: rgba(213, 203, 208, 0.75)
 }
-
-
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">var audio = document.createElement</script><tw-tag name="Mensch" color="red"></tw-tag><tw-tag name="Elfe" color="green"></tw-tag><tw-tag name="Khajit" color="purple"></tw-tag><tw-tag name="Zauberer" color="blue"></tw-tag><tw-tag name="Storyline" color="yellow"></tw-tag><tw-passagedata pid="1" name="Willkommen in Ablon" tags="Storyline" position="900,400" size="100,100">&#39;&#39;Willkommen in Ablon!&#39;&#39;
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="Mensch" color="red"></tw-tag><tw-tag name="Elfe" color="green"></tw-tag><tw-tag name="Khajit" color="purple"></tw-tag><tw-tag name="Zauberer" color="blue"></tw-tag><tw-tag name="Storyline" color="yellow"></tw-tag><tw-passagedata pid="1" name="Willkommen in Ablon" tags="Storyline" position="900,400" size="100,100">&#39;&#39;Willkommen in Ablon!&#39;&#39;
 
 Du tauchst nun ein in eine Welt voller Magie und Zauberwesen. Die Welt von Ablon besteht aus vier Völkern den //Elfen//, die //Kahjit//, die //Menschen// und die //Zauberer//. 
 
@@ -361,16 +359,13 @@ Feder eines Bartkauz*
 
 [[Wirf alles hinein-&gt;Kesselinhalt]]
 
-(if: $kessel contains &#39;Wasser&#39; and &#39;Roter Pilz&#39; and &#39;Windblüte&#39;)[\
-Herzlichen Glückwunsch du hast einen Stärketrank gemischt.]
-(else:)
-
-
 [[Inventar]]
 [[Tisch]]
 [[Zauberbuch]]</tw-passagedata><tw-passagedata pid="41" name="Inventar" tags="Zauberer" position="1700,1600" size="100,100">Du hast Folgendes dabei:
 
 (print: $inventar)
+
+
 
 [[Zauberbuch]]
 [[Tisch]]
@@ -385,9 +380,19 @@ Herzlichen Glückwunsch du hast einen Stärketrank gemischt.]
 (go-to: &quot;Tisch&quot;)</tw-passagedata><tw-passagedata pid="50" name="Zaubermoos" tags="" position="2100,1700" size="100,100">(set: $inventar to $inventar + (a:&quot;Zaubermoos&quot;))
 (go-to: &quot;Tisch&quot;)</tw-passagedata><tw-passagedata pid="51" name="Windblüte" tags="" position="2100,1725" size="100,100">(set: $inventar to $inventar + (a:&quot;Windblüte&quot;))
 (go-to: &quot;Tisch&quot;)</tw-passagedata><tw-passagedata pid="52" name="Feder eines Bartkauz" tags="" position="2075,1675" size="100,100">(set: $inventar to $inventar + (a:&quot;Feder eines Bartkauz&quot;))
-(go-to: &quot;Tisch&quot;)</tw-passagedata><tw-passagedata pid="53" name="Kesselinhalt" tags="Zauberer" position="1625,2025" size="100,100">(set: $kessel to $kessel + $inventar)
+(go-to: &quot;Tisch&quot;)</tw-passagedata><tw-passagedata pid="53" name="Kesselinhalt" tags="Zauberer" position="1600,2000" size="100,100">(set: $kessel to $kessel + $inventar)
 (set: $inventar to 0)
-(go-to: &quot;Kessel&quot;)</tw-passagedata></tw-storydata>
+(go-to: &quot;Kessel2&quot;)</tw-passagedata><tw-passagedata pid="54" name="Kessel2" tags="Zauberer" position="1500,2100" size="100,100">(if: $kessel contains &#39;Wasser&#39; and &#39;Roter Pilz&#39; and &#39;Windblüte&#39;)[\
+Herzlichen Glückwunsch du hast einen Stärketrank gemischt.]
+(else-if: $kessel contains &#39;Wasserblume&#39; and &#39;Brauner Pilz&#39; and &#39;Träne einer Elfe&#39;)[\
+Herzlichen Glückwunsch du hast einen Heilungstrank gemischt.]
+(else-if: $kessel contains &#39;Zaubermoos&#39; and &#39;Sumpfpilz&#39; and &#39;Feder eines Bartkauz&#39;)[\
+Herzlichen Glückwunsch du hast einen Schleichtrank gemischt.]
+(else:) [Das hat leider nicht geklappt!]
+
+
+
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
